@@ -192,6 +192,12 @@ in {
         details.listen.text = "${config.services.hydra.listenHost}:${toString config.services.hydra.port}";
       };
 
+      immich = mkIf config.services.immich.enable {
+        name = "Immich";
+        icon = "services.immich";
+        details.listen.text = "${config.services.immich.host}:${toString config.services.immich.port}";
+      };
+
       influxdb2 = mkIf config.services.influxdb2.enable {
         name = "InfluxDB v2";
         icon = "services.influxdb2";
