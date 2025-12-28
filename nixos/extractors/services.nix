@@ -304,6 +304,12 @@ in {
         icon = "services.karakeep";
       };
 
+      komga = mkIf config.services.komga.enable {
+        name = "Komga";
+        icon = "services.komga";
+        details.listen = mkIf config.services.komga.openFirewall {text = "0.0.0.0:${toString config.services.komga.settings.server.port}";};
+      };
+
       languagetool = mkIf config.services.languagetool.enable {
         name = "Languagetool";
         icon = "services.languagetool";
