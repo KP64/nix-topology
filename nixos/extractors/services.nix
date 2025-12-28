@@ -115,6 +115,13 @@ in {
         details.listen.text = "${config.services.code-server.host}:${toString config.services.code-server.port}";
       };
 
+      coder = mkIf config.services.coder.enable {
+        name = "Coder";
+        icon = "services.coder";
+        info = config.services.coder.accessUrl;
+        details.listen.text = config.services.coder.listenAddress;
+      };
+
       dnsmasq = mkIf config.services.dnsmasq.enable {
         name = "Dnsmasq";
         icon = "services.dnsmasq";
